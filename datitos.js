@@ -79,7 +79,7 @@ router.delete('/mysql-delete/:id', function (req, res) {
     if(err) throw err;
     console.log('connected as id ' + connection.threadId);
 
-    connection.pool.query('DELETE FROM mensaje WHERE id = ?', req.params.id, (err, queryres) => {
+    connection.query('DELETE FROM mensaje WHERE id = ?', req.params.id, (err, queryres) => {
       connection.release();
       if(err) {
         res.status(400);
